@@ -19,12 +19,23 @@
             padding: 20px;
         }
 
+        footer {
+            background-color: #20232a;
+            color: white;
+            padding: 20px;
+        }
+
         h1 {
             margin: 0;
         }
 
         p {
             font-size: 1.2rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .gallery {
@@ -88,33 +99,70 @@
             font-size: 1.5rem;
         }
 
+        .image-row {
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .image-row img {
+            width: 200px; 
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .image-row img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
         .hidden {
             display: none;
         }
     </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P0EZQQS64N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-P0EZQQS64N');
-</script>
 <body>
     <header>
         <h1>Marvel Cinematic Universe</h1>
         <p>Explore the world of Avengers!</p>
+        <p>The Marvel Cinematic Universe (MCU) is a series of interconnected films produced by Marvel Studios, based on characters from Marvel Comics. The MCU began in 2008 with the release of Iron Man and has since expanded to include over 30 films, as well as numerous television series and digital series. The films are connected by a shared continuity, which allows characters to appear across multiple films and storylines.</p>
+
+    <p>The MCU is divided into four phases: Phase One (2008-2012), Phase Two (2013-2015), Phase Three (2016-2019), and Phase Four (2021-present). Each phase introduces new characters and storylines, while also building upon the existing continuity. The MCU has been praised for its innovative storytelling, groundbreaking special effects, and ensemble cast of talented actors.</p>
+
+    <p>The MCU has achieved immense commercial success, becoming one of the highest-grossing film franchises of all time. The films have been praised for their action-packed sequences, humor, and emotional depth. The MCU has also been credited with popularizing the superhero genre and inspiring a new generation of fans.</p>
+
+    <p>The future of the MCU is bright, with many exciting projects in development. Fans can expect to see new characters, new storylines, and new adventures in the years to come.</p>
+
     </header>
 
-    <section class="gallery">
-        <img src="Avengers1.jpg" alt="Avengers 1">
-        <img src="Avengers2.jpg" alt="Avengers 2">
-        <img src="Avengers3.jpg" alt="Avengers 3">
-    </section>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0EZQQS64N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-    <div id="crash-popup" class="popup hidden">
+    gtag('config', 'G-P0EZQQS64N');
+    </script>
+
+    <p>Check out the different Phases of MCU</p>
+    <div class="image-row">
+        <a></a>
+        <a href="phase1.html">
+            <img src="Phase1.jpg" alt="Avengers 1">
+        </a>
+        <a href="phase2.html">
+            <img src="Phase2.jpg" alt="Avengers 2">
+        </a>
+        <a href="phase3.html">
+            <img src="Phase3.jpeg" alt="Avengers 3">
+        </a>
+        <a></a>
+    </div>
+
+    <!-- <div id="crash-popup" class="popup hidden">
         <div class="popup-content">
             <span id="close-popup" class="close">&times;</span>
             <h2>Webpage Crashed</h2>
@@ -125,34 +173,62 @@
                 <button onclick="forceQuit()">Force Quit</button>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>My Dummy Company</p>
+                <p>&copy; 2024. All rights reserved.</p>
+                <p>Privacy Policy | Terms of Service</p>
+                <ul class="social-icons">
+                    </ul>
+            </div>
+        </div>
+    </footer>
 
     <script>
+
+        document.addEventListener("click", function(event) {
+
+            if (event.target.tagName === 'IMG' || event.target.tagName === "A") {
+                
+                gtag('event', 'link_click', {
+                    'link_text': event.target.innerText,
+                    'link_url': event.target.href,
+                    'link_id': event.target.id,
+                    'link_classes': event.target.className,
+                    'appName': navigator.appName,
+                    'userAgent': navigator.userAgent,
+                    'platform': navigator.platform
+                })
+            }
+        })
         // Simulate the crash popup appearing after 5 seconds
-        setTimeout(function() {
-            document.getElementById('crash-popup').classList.remove('hidden');
-        }, 5000);
+        // setTimeout(function() {
+        //     document.getElementById('crash-popup').classList.remove('hidden');
+        // }, 5000);
 
-        // Close button on the popup
-        document.getElementById('close-popup').onclick = function() {
-            document.getElementById('crash-popup').classList.add('hidden');
-        };
+        // // Close button on the popup
+        // document.getElementById('close-popup').onclick = function() {
+        //     document.getElementById('crash-popup').classList.add('hidden');
+        // };
 
-        // Action buttons for popup
-        function reportCrash() {
-            alert("Crash has been reported!");
-            document.getElementById('crash-popup').classList.add('hidden');
-        }
+        // // Action buttons for popup
+        // function reportCrash() {
+        //     alert("Crash has been reported!");
+        //     document.getElementById('crash-popup').classList.add('hidden');
+        // }
 
-        function waitForResponse() {
-            alert("Please wait, the page is trying to recover...");
-            document.getElementById('crash-popup').classList.add('hidden');
-        }
+        // function waitForResponse() {
+        //     alert("Please wait, the page is trying to recover...");
+        //     document.getElementById('crash-popup').classList.add('hidden');
+        // }
 
-        function forceQuit() {
-            alert("Page is closing...");
-            window.close();
-        }
+        // function forceQuit() {
+        //     alert("Page is closing...");
+        //     document.getElementById('crash-popup').classList.add('hidden');
+        // }
     </script>
 </body>
 </html>
