@@ -162,13 +162,13 @@
     <p>Check out the different Phases of MCU</p>
     <div class="image-row">
         <a href="phase1.html">
-            <img src="Phase1.jpg" alt="Phase1 details page">
+            <img src="Phase1.jpg" alt="Phase1 details page" id="phases">
         </a>
         <a href="phase2.html">
-            <img src="Phase2.jpg" alt="Phase2 details page">
+            <img src="Phase2.jpg" alt="Phase2 details page" id="phases">
         </a>
         <a href="phase3.html">
-            <img src="Phase3.jpeg" alt="Phase3 details page">
+            <img src="Phase3.jpeg" alt="Phase3 details page" id="phases">
         </a>
     </div>
 
@@ -204,7 +204,7 @@
             if (event.target.tagName === 'IMG' || event.target.tagName === "A") {
                 gtag('event', 'link_click', {
                     'link_text': event.target.alt,
-                    'link_id': event.target.src,
+                    'link_id': event.target.id,
                     'appName': navigator.appName,
                     'userAgent': navigator.userAgent,
                     'platform': navigator.platform
