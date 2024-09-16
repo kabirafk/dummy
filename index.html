@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Cinematic Universe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #20232a;
+            color: white;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 30%;
+            border-radius: 10px;
+        }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            position: relative;
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .popup-buttons button {
+            flex: 1;
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .popup-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Marvel Cinematic Universe</h1>
+        <p>Explore the world of Avengers!</p>
+    </header>
+
+    <section class="gallery">
+        <img src="Avengers1.jpg" alt="Avengers 1">
+        <img src="Avengers2.jpg" alt="Avengers 2">
+        <img src="Avengers3.jpg" alt="Avengers 3">
+    </section>
+
+    <div id="crash-popup" class="popup hidden">
+        <div class="popup-content">
+            <span id="close-popup" class="close">&times;</span>
+            <h2>Webpage Crashed</h2>
+            <p>Something went wrong. What would you like to do?</p>
+            <div class="popup-buttons">
+                <button onclick="reportCrash()">Report</button>
+                <button onclick="waitForResponse()">Wait</button>
+                <button onclick="forceQuit()">Force Quit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulate the crash popup appearing after 5 seconds
+        setTimeout(function() {
+            document.getElementById('crash-popup').classList.remove('hidden');
+        }, 5000);
+
+        // Close button on the popup
+        document.getElementById('close-popup').onclick = function() {
+            document.getElementById('crash-popup').classList.add('hidden');
+        };
+
+        // Action buttons for popup
+        function reportCrash() {
+            alert("Crash has been reported!");
+            document.getElementById('crash-popup').classList.add('hidden');
+        }
+
+        function waitForResponse() {
+            alert("Please wait, the page is trying to recover...");
+            document.getElementById('crash-popup').classList.add('hidden');
+        }
+
+        function forceQuit() {
+            alert("Page is closing...");
+            window.close();
+        }
+    </script>
+</body>
+</html>
