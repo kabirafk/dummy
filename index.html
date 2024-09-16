@@ -161,17 +161,15 @@
 
     <p>Check out the different Phases of MCU</p>
     <div class="image-row">
-        <!-- <a></a> -->
         <a href="phase1.html">
-            <img src="Phase1.jpg" alt="Avengers 1" width="300">
+            <img src="Phase1.jpg" alt="Phase1 details page">
         </a>
         <a href="phase2.html">
-            <img src="Phase2.jpg" alt="Avengers 2" width="300">
+            <img src="Phase2.jpg" alt="Phase2 details page">
         </a>
         <a href="phase3.html">
-            <img src="Phase3.jpeg" alt="Avengers 3" width="300">
+            <img src="Phase3.jpeg" alt="Phase3 details page">
         </a>
-        <!-- <a></a> -->
     </div>
 
     <!-- <div id="crash-popup" class="popup hidden">
@@ -204,12 +202,9 @@
         document.addEventListener("click", function(event) {
 
             if (event.target.tagName === 'IMG' || event.target.tagName === "A") {
-                
                 gtag('event', 'link_click', {
-                    'link_text': event.target.innerText,
-                    'link_url': event.target.href,
-                    'link_id': event.target.id,
-                    'link_classes': event.target.className,
+                    'link_text': event.target.alt,
+                    'link_id': event.target.src,
                     'appName': navigator.appName,
                     'userAgent': navigator.userAgent,
                     'platform': navigator.platform
